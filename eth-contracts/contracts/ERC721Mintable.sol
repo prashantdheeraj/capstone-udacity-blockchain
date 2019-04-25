@@ -9,17 +9,17 @@ import "./Oraclize.sol";
 contract Ownable {
     //  TODO's
     //  1) create a private '_owner' variable of type address with a public getter function
-    address public _owner;
+    address public owner;
    
     //  2) create an internal constructor that sets the _owner var to the creater of the contract 
     constructor() public {
         // set creator of contract as owner
-        _owner = msg.sender;
+        owner = msg.sender;
         emit OwnershipTransferred(msg.sender);
     }
     //  3) create an 'onlyOwner' modifier that throws if called by any account other than the owner.
     modifier onlyOwner {
-        require(msg.sender == _owner, "Only owner can call this function");
+        require(msg.sender == owner, "Only owner can call this function");
         _;
     }
 
@@ -32,7 +32,7 @@ contract Ownable {
         // TODO add functionality to transfer control of the contract to a newOwner.
          require(newOwner != address(0), "Invalid address");
         // make sure the new owner is a real address
-        _owner = newOwner;
+        owner = newOwner;
         emit OwnershipTransferred(newOwner);
 
     }
@@ -255,7 +255,7 @@ contract ERC721 is Pausable, ERC165 {
         require(to != address(0), "Invalid address");
   
         // TODO mint tokenId to given address & increase token count of owner
-        tokenOwner[tokenId] = to;
+        _tokenOwner[tokenId] = to;
         _ownedTokensCount[to].increment();
 
         // TODO emit Transfer event
