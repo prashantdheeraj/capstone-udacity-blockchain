@@ -12,7 +12,8 @@
   "dependencies": {
     "openzeppelin-solidity": "^2.2.0",
     "solc": "^0.5.2",
-    "solc-js": "^0.5.2"
+    "solc-js": "^0.5.2",
+    "truffle-hdwallet-provider": "^1.0.5"
   },
   "author": "",
   "license": "ISC"
