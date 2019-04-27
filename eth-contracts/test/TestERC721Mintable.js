@@ -79,7 +79,7 @@ contract('TestERC721Mintable', accounts => {
 
         it('should return contract owner', async function () { 
             assert.equal(
-                await this.contract.getOwner.call(),
+                await this.contract.owner.call(),
                 account_one,
                 'Incorrect Contract Owner Address'
               )
