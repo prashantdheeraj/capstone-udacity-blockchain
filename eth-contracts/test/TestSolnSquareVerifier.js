@@ -58,15 +58,15 @@ it('Can add new solution for contract', async () => {
       accounts[1],
       hash
     )
-    // truffleAssert.eventEmitted(
-    //   tx,
-    //   'SolutionAdded',
-    //   ev => {
-    //     return +ev.index == 1 &
-    //     ev.solvedBy === accounts[1]
-    //   },
-    //   'SolutionAdded event should have been emitted'
-    // )      
+    truffleAssert.eventEmitted(
+      tx,
+      'SolutionAdded',
+      ev => {
+        return +ev.index == 1 &
+        ev.solver === accounts[1]
+      },
+      'SolutionAdded event should have been emitted'
+    )      
   })
 
   // Test if an ERC721 token can be minted for contract - SolnSquareVerifier
